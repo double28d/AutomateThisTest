@@ -15,14 +15,23 @@ public class HomePage extends BasePage{
 //    @FindBy(className = "fc-button-label")
 //    public WebElement consentField;
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
-    private WebElement elementsField;
+    private WebElement dialogField;
+
+    @FindBy(xpath = "//h5[text()='Forms']")
+    private WebElement formField;
 
 
 
     public void navigateToAlertFrameWindowPage (){
         elementMethods.scrollElementByPixel(0, 250);
 //        elementMethods.clickElement(consentField);
-        elementMethods.clickElement(elementsField);
+        elementMethods.clickElement(dialogField);
+    }
+
+    public void navigateToFormPage(){
+        elementMethods.scrollElementByPixel(0, 250);
+        elementMethods.clickElement(formField);
+
     }
 
 }

@@ -12,12 +12,19 @@ public class AlertWindowFramePage extends BasePage {
        super(webDriver);
     }
     @FindBy(xpath = "//span[text()='Alerts']")
-    private WebElement browserField;
+    private WebElement alertField;
+    @FindBy(xpath = "//span[text()='Frames']")
+    private WebElement frameField;
+
+//    public AlertWindowFramePage(WebDriver webDriver)
 
     public void navigateToAlertPage(){
         elementMethods.scrollElementByPixel(0, 450);
-        elementMethods.clickElement(browserField);
+        elementMethods.clickElement(alertField);
+    }
 
+    public void navigateToFramePage(){
+        elementMethods.clickElement(frameField);
     }
 
 }

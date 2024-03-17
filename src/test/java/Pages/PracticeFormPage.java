@@ -43,8 +43,10 @@ public class PracticeFormPage extends BasePage {
     private WebElement pictureField;
     @FindBy(css = "textarea[placeholder='Current Address']")
     private WebElement currentAddressField;
+    @FindBy(xpath = "//div[text()='Select State']")
+    private WebElement selectState;
     @FindBy(id = "react-select-3-input")
-    private WebElement stateField;
+    private WebElement stateInputField;
     @FindBy(xpath = "//div[text()='Select City']")
     private WebElement selectCity;
     @FindBy(id = "react-select-4-input")
@@ -113,13 +115,13 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void pickState(String stateValue) {
-        elementMethods.clickElemForce(stateField);
-        elementMethods.fillPressElement(stateField, stateValue, Keys.ENTER);
+        elementMethods.clickElemForce(selectState);
+        elementMethods.fillPressElement(stateInputField, stateValue, Keys.ENTER);
         elementMethods.scrollElementByPixel(0, 450);
     }
 
     public void pickCity(String cityValue) {
-        elementMethods.scrollElementByPixel(0, 450);
+        elementMethods.scrollElementByPixel(0, 650);
         elementMethods.waitVisibleElement(selectCity);
         elementMethods.clickElemForce(selectCity);
         elementMethods.fillPressElement(cityInputField, cityValue, Keys.ENTER);

@@ -2,6 +2,9 @@ package Tests;
 
 import HelperMethods.ElementMethods;
 import HelperMethods.WindowMethods;
+import Pages.AlertWindowFramePage;
+import Pages.HomePage;
+import Pages.WindowPage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,39 +17,15 @@ public class WindowTest extends SharedData {
 
     @Test
     public void windowMethod() {
+        HomePage homePage = new HomePage(getWebDriver());
+        homePage.navigateToAlertFrameWindowPage();
 
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
-        WindowMethods windowMethods = new WindowMethods(getWebDriver());
+        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
+        alertWindowFramePage.navigateToBrowserWindowPage();
 
-        elementMethods.scrollElementByPixel(0,450);
-
-//        WebElement consentField = getWebDriver().findElement(By.className("fc-button-label"));
-//        elementMethods.clickElement(consentField);
-
-        WebElement elementsField= getWebDriver().findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementMethods.clickElement(elementsField);
-
-        WebElement browserField= getWebDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
-        elementMethods.clickElement(browserField);
-
-        WebElement newTabButton= getWebDriver().findElement(By.id("tabButton"));
-        elementMethods.clickElement(newTabButton);
-
-        windowMethods.switchSpecificTabWindow(1);
-
-        //close =  inchide tab-ul curent
-        //quit = inchide browser-ul cu toate tab-urile
-        windowMethods.closeCurrentTabWindow();
-        windowMethods.switchSpecificTabWindow(0);
-
-        WebElement newWindowButton= getWebDriver().findElement(By.id("windowButton"));
-        elementMethods.clickElement(newWindowButton);
-
-        windowMethods.switchSpecificTabWindow(1);
-        windowMethods.closeCurrentTabWindow();
-        windowMethods.switchSpecificTabWindow(0);
-
-        getWebDriver().quit();
+        WindowPage windowPage = new WindowPage(getWebDriver());
+        windowPage.interactWithTabBrowser();
+        windowPage.interactNewWindow();
 
     }
 }

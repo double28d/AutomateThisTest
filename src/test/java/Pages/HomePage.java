@@ -11,23 +11,15 @@ public class HomePage extends BasePage{
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
-
-//    @FindBy(className = "fc-button-label")
-//    public WebElement consentField;
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
     private WebElement dialogField;
-
     @FindBy(xpath = "//h5[text()='Forms']")
     private WebElement formField;
-
     @FindBy(xpath = "//h5[text()='Elements']")
     private WebElement elementField;
 
-
-
     public void navigateToAlertFrameWindowPage (){
         elementMethods.scrollElementByPixel(0, 250);
-//        elementMethods.clickElement(consentField);
         elementMethods.clickElement(dialogField);
     }
 

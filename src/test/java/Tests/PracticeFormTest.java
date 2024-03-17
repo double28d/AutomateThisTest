@@ -56,7 +56,8 @@ public class PracticeFormTest extends SharedData {
         practiceFormPage.setCurrentAddressField(currentAddressFieldValue);
         practiceFormPage.pickState(stateValue);
         practiceFormPage.pickCity(cityValue);
-//        practiceFormPage.clickSubmit();
+        practiceFormPage.clickSubmit();
+//        practiceFormPage.validatePracticeFormTable(firstnameValue, lastNameValue, userEmailValue, genderValue,  );
 
 
 //        WebElement stateField = getWebDriver().findElement(By.id("react-select-3-input"));

@@ -44,20 +44,10 @@ public class PracticeFormTest extends SharedData {
 
 
         PracticeFormPage practiceFormPage = new PracticeFormPage(getWebDriver());
-        practiceFormPage.fillFirstName(firstnameValue);
-        practiceFormPage.fillLastName(lastNameValue);
-        practiceFormPage.fillUserEmail(userEmailValue);
-        practiceFormPage.fillMobileNumber(userMobileNumberValue);
-        practiceFormPage.fillBirthDay(monthValue,yearValue,dayValue);
-        practiceFormPage.pickGender(genderValue);
-        practiceFormPage.pickHobbies(hobbies);
-        practiceFormPage.pickSubject(subjectValue);
-        practiceFormPage.pickPicture(filePath);
-        practiceFormPage.setCurrentAddressField(currentAddressFieldValue);
-        practiceFormPage.pickState(stateValue);
-        practiceFormPage.pickCity(cityValue);
-        practiceFormPage.clickSubmit();
-//        practiceFormPage.validatePracticeFormTable(firstnameValue, lastNameValue, userEmailValue, genderValue,  );
+        practiceFormPage.fillEntireForm(firstnameValue, lastNameValue, userEmailValue, userMobileNumberValue, monthValue,
+                yearValue, dayValue, genderValue, hobbies, subjectValue, filePath, currentAddressFieldValue, stateValue, cityValue);
+        practiceFormPage.validatePracticeFormTable(firstnameValue, lastNameValue, userEmailValue, genderValue,
+                userMobileNumberValue, subjectValue, hobbies, filePath, currentAddressFieldValue, stateValue, cityValue);
 
 
 //        WebElement stateField = getWebDriver().findElement(By.id("react-select-3-input"));

@@ -14,7 +14,6 @@ public class PracticeFormPage extends BasePage{
     public PracticeFormPage(WebDriver webDriver) {
         super(webDriver);
     }
-
     @FindBy(id = "firstName")
     private WebElement firstNameField;
     @FindBy(css = "input[placeholder='Last Name']")
@@ -31,9 +30,8 @@ public class PracticeFormPage extends BasePage{
     private WebElement monthPick;
     @FindBy(css = ".react-datepicker__year-select")
     private WebElement yearPick;
-    @FindBy(xpath = "//div[not(contains(@class, " +
-            "'react-datepicker__day--outside-month')) "
-            + "and contains (@class, 'react-datepicker__day react-datepicker__day')]")
+    @FindBy(xpath = "//div[not(contains(@class, 'outside-month'))" +
+            " and contains(@class, 'react-datepicker__day react-datepicker__day')]")
     private List<WebElement> dayPick;
     @FindBy(id = "subjectsInput")
     private WebElement subjectsField;
@@ -45,6 +43,8 @@ public class PracticeFormPage extends BasePage{
     private WebElement currentAddressField;
     @FindBy(id = "react-select-3-input")
     private WebElement stateField;
+    @FindBy(xpath = "//div[text()='Select City']")
+    private WebElement selectCity;
     @FindBy(id = "react-select-4-input")
     private WebElement cityInputField;
     @FindBy(id = "submit")
@@ -71,6 +71,7 @@ public class PracticeFormPage extends BasePage{
         elementMethods.clickElement(dateOfBirthField);
         elementMethods.selectTextElement(monthPick, monthValue);
         elementMethods.selectValueElement(yearPick,yearValue);
+
         for (Integer index = 0; index < dayPick.size(); index++){
             if (dayPick.get(index).getText().equals(dayValue)){
                 dayPick.get(index).click();
@@ -96,8 +97,25 @@ public class PracticeFormPage extends BasePage{
         elementMethods.fillElement(pictureField, new File(filePath).getAbsolutePath());
     }
     public void setCurrentAddressField (String currentAddressFieldValue){
+        elementMethods.scrollElementByPixel(0,450);
         elementMethods.fillElement(currentAddressField,currentAddressFieldValue);
     }
+    public void pickState(String stateValue){
+        elementMethods.clickElemForce(stateField);
+        elementMethods.fillPressElement(stateField,stateValue,Keys.ENTER);
+        elementMethods.scrollElementByPixel(0,450);
+    }
+    public void pickCity (String cityValue){
+        elementMethods.scrollElementByPixel(0,450);
+        elementMethods.waitVisibleElement(selectCity);
+        elementMethods.clickElemForce(selectCity);
+        elementMethods.fillPressElement(cityInputField,cityValue,Keys.ENTER);
+    }
+//    public void clickSubmit (){
+//        elementMethods.clickElemForce(submitButton);
+//
+//    }
+
 
 }
 

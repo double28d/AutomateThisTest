@@ -39,6 +39,8 @@ public class PracticeFormTest extends SharedData {
         String subjectValue = "Engineer";
         String filePath = "src/test/resources/tree.jpg";
         String currentAddressFieldValue = ("str.gojnea 23");
+        String stateValue = "NCR";
+        String cityValue = "Delhi";
 
 
         PracticeFormPage practiceFormPage = new PracticeFormPage(getWebDriver());
@@ -52,6 +54,9 @@ public class PracticeFormTest extends SharedData {
         practiceFormPage.pickSubject(subjectValue);
         practiceFormPage.pickPicture(filePath);
         practiceFormPage.setCurrentAddressField(currentAddressFieldValue);
+        practiceFormPage.pickState(stateValue);
+        practiceFormPage.pickCity(cityValue);
+//        practiceFormPage.clickSubmit();
 
 
 //        WebElement stateField = getWebDriver().findElement(By.id("react-select-3-input"));

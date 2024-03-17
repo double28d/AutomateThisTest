@@ -25,13 +25,13 @@ public class ElementMethods {
     }
 
     public void waitVisibleElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(2));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 
     public void clickElement(WebElement element) {
-//        waitVisibleElement(element);
+        waitVisibleElement(element);
         element.click();
 
     }
@@ -72,6 +72,7 @@ public class ElementMethods {
     }
 
     public void fillPressElement (WebElement element, String value, Keys key){
+        scrollElementByPixel(0,350);
         waitVisibleElement(element);
         element.sendKeys(value);
         element.sendKeys(key);

@@ -102,6 +102,7 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void pickSubject(String subjectValue) {
+        elementMethods.waitVisibleElement(subjectsField);
         elementMethods.fillPressElement(subjectsField, subjectValue, Keys.ENTER);
     }
 
@@ -121,7 +122,6 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void pickCity(String cityValue) {
-        elementMethods.scrollElementByPixel(0, 650);
         elementMethods.waitVisibleElement(selectCity);
         elementMethods.clickElemForce(selectCity);
         elementMethods.fillPressElement(cityInputField, cityValue, Keys.ENTER);

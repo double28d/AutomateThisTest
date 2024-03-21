@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.WebTableObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,22 +32,21 @@ public class WebTablePage extends BasePage{
     @FindBy(id = "delete-record-4")
     private WebElement deleteButton;
 
-    public void addNewEntry (String firstNameValue, String lastNameValue, String emailValue,
-                             String ageValue, String salaryValue, String departmentValue){
+    public void addNewEntry (WebTableObject webTableObject){
         elementMethods.clickElement(addField);
-        elementMethods.fillElement(firstNameField, firstNameValue);
-        elementMethods.fillElement(lastNameField, lastNameValue);
-        elementMethods.fillElement(emailField, emailValue);
-        elementMethods.fillElement(ageField, ageValue);
-        elementMethods.fillElement(salaryField, salaryValue);
-        elementMethods.fillElement(departmentField, departmentValue);
+        elementMethods.fillElement(firstNameField, webTableObject.getFirstnameValue());
+        elementMethods.fillElement(lastNameField, webTableObject.getLastnameValue());
+        elementMethods.fillElement(emailField, webTableObject.getEmailValue());
+        elementMethods.fillElement(ageField, webTableObject.getAgeValue());
+        elementMethods.fillElement(salaryField, webTableObject.getSalaryValue());
+        elementMethods.fillElement(departmentField, webTableObject.getDepartmentVal());
         elementMethods.clickElement(submitField);
     }
 
-    public void editEntry (String firstNameValue, String lastNameValue){
+    public void editEntry (WebTableObject webTableObject){
         elementMethods.clickElement(editField);
-        elementMethods.refillElement(firstNameField, firstNameValue);
-        elementMethods.refillElement(lastNameField, lastNameValue);
+        elementMethods.refillElement(firstNameField, webTableObject.getFirstNameModi());
+        elementMethods.refillElement(lastNameField, webTableObject.getLastNameModif());
         elementMethods.clickElement(submitField);
     }
 

@@ -3,10 +3,11 @@ package tests;
 import pages.AlertWindowFramePage;
 import pages.HomePage;
 import pages.WindowPage;
+import sharedData.Hooks;
 import sharedData.SharedData;
 import org.testng.annotations.Test;
 
-public class WindowTest extends SharedData {
+public class WindowTest extends Hooks {
 
     @Test
     public void windowMethod() {

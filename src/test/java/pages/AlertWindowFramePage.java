@@ -1,5 +1,6 @@
 package pages;
 
+import loggerUtillity.LoggerUtillity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,15 +21,19 @@ public class AlertWindowFramePage extends BasePage {
 
     public void navigateToAlertPage(){
         elementMethods.scrollElementByPixel(0, 450);
+        LoggerUtillity.infoTest("The user scroll down the page");
         elementMethods.clickElement(alertField);
+        LoggerUtillity.infoTest("The user clicks on alertField element");
     }
 
     public void navigateToFramePage(){
         elementMethods.clickElement(frameField);
+        LoggerUtillity.infoTest("The user clicks on frameField element");
     }
 
     public void navigateToBrowserWindowPage(){
         elementMethods.clickElemForce(browserField);
+        LoggerUtillity.infoTest("The user clicks on browserField element");
     }
 
 }

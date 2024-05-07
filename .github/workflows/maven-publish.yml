@@ -38,6 +38,6 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: SuiteResults
-        path: |
-          target/logs/suite.log
+          name: SuiteResults
+          path: |
+            target/logs/suite.log

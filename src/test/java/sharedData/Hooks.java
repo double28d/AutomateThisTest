@@ -22,7 +22,7 @@ public class Hooks extends SharedData {
     @AfterMethod
     public void clearEnvironment(){
         clearDriver();
-        LoggerUtillity.infoTest("The driver is close with SUCCESS");
+        LoggerUtillity.infoTest("The driver is closed with SUCCESS");
         LoggerUtillity.finishTestCase(testName);
     }
 }

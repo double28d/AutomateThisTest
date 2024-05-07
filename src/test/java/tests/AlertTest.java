@@ -1,11 +1,10 @@
 package tests;
 
+import org.testng.annotations.Test;
 import pages.AlertPage;
 import pages.AlertWindowFramePage;
 import pages.HomePage;
 import sharedData.Hooks;
-import sharedData.SharedData;
-import org.testng.annotations.Test;
 
 public class AlertTest extends Hooks {
 
